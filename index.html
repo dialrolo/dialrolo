@@ -11,43 +11,76 @@
     <style>
         :root { --slate-main: #334155; --slate-bg: #F8FAFC; }
         body { font-family: 'Inter', sans-serif; background-color: var(--slate-bg); color: var(--slate-main); line-height: 1.6; }
-        .liquid-glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 28px; }
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 28px;
+        }
+        /* Tab Logic */
         .tab-content { display: none; }
         .tab-content.active { display: block !important; }
-        .tab-btn { border-bottom: 2px solid transparent; transition: all 0.3s ease; }
-        .tab-btn.active { border-color: var(--slate-main); color: var(--slate-main) !important; font-weight: 700; }
+        .tab-btn { border-bottom: 2px solid transparent; transition: all 0.3s ease; cursor: pointer; }
+        .tab-btn.active { border-color: var(--slate-main); color: var(--slate-main) !important; font-weight: 700; opacity: 1; }
+        
         .data-table { width: 100%; font-size: 0.8rem; border-collapse: collapse; margin: 1rem 0; }
         .data-table th, .data-table td { border: 1px solid #e2e8f0; padding: 12px; text-align: left; }
-        .data-table th { background: #f1f5f9; font-weight: 600; color: #1e293b; }
+        .data-table th { background: #f1f5f9; font-weight: 600; }
         .policy-section h4 { font-weight: 700; color: #0f172a; margin-top: 2rem; margin-bottom: 0.75rem; border-left: 4px solid var(--slate-main); padding-left: 12px; }
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="max-w-5xl mx-auto pt-20 pb-12 px-6">
-        <h1 class="text-5xl font-black tracking-tight text-slate-900 mb-4">DialRolo</h1>
-        <p class="text-lg text-slate-500 font-light">
-            Smart Call Archiving & On-device Insights.
+    <header class="max-w-5xl mx-auto pt-24 pb-16 px-6">
+        <div class="inline-block px-3 py-1 mb-6 text-[10px] font-bold tracking-[0.2em] uppercase bg-slate-200 rounded-md text-slate-700">
+            Android Utility Project
+        </div>
+        <h1 class="text-5xl md:text-6xl font-black tracking-tight text-slate-900 mb-6">
+            Stop losing your <br><span class="text-slate-500">Call History.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-500 max-w-2xl font-light leading-relaxed">
+            Android typically limits your call history to 500 entries. <br class="hidden md:block">
+            DialRolo archives everything locally, giving you a permanent record of your communication.
         </p>
     </header>
 
     <main class="max-w-5xl mx-auto px-6 pb-32">
         
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold text-slate-900">Why DialRolo?</h2>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                    대부분의 스마트폰은 저장 공간 효율을 위해 오래된 통화 기록을 자동으로 삭제합니다. 비즈니스 파트너와의 중요한 통화 시점이나 소중한 사람과의 기록이 어느 날 사라져 버리는 이유입니다. <br><br>
+                    DialRolo는 시스템 다이얼러의 휘발성 기록을 <strong>로컬 전용 데이터베이스</strong>로 안전하게 옮겨 담습니다. 이제 2,000건, 혹은 그 이상의 기록을 영구적으로 보관하고 관리하세요.
+                </p>
+            </div>
+            <div class="liquid-glass p-10 flex flex-col justify-center">
+                <div class="text-4xl font-bold mb-2">2,000+</div>
+                <div class="text-slate-500 font-medium">Archivable Logs</div>
+                <div class="mt-4 h-1 w-20 bg-slate-400"></div>
+                <p class="mt-6 text-xs text-slate-500">시스템 제한을 넘어선 무제한 로컬 아카이빙 프로세스. 서버 전송 없이 오직 당신의 기기에만 저장됩니다.</p>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
             <div class="liquid-glass p-8">
-                <h3 class="text-xl font-bold mb-4">The Purpose</h3>
-                <p class="text-sm text-slate-600">안드로이드 시스템의 500개 보관 제한을 넘어, 소중한 통화 기록을 영구 보관하고 의미 있는 통계를 제공하기 위해 개발되었습니다. 모든 데이터는 오직 당신의 기기에만 머무릅니다.</p>
+                <h4 class="font-bold mb-3">Visual Dashboard</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">Visualize your communication patterns with clean, intuitive charts. Understand your peak hours and call frequencies at a glance.</p>
             </div>
             <div class="liquid-glass p-8">
-                <h3 class="text-xl font-bold mb-4">2,000+ Archive</h3>
-                <p class="text-sm text-slate-600">삭제될 위기에 처한 과거의 기록을 로컬 데이터베이스에 아카이브하여 언제든 다시 찾아볼 수 있는 통화 일기장을 구현했습니다.</p>
+                <h4 class="font-bold mb-3">Interaction Insights</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">Go beyond numbers. Our weight-based algorithm analyzes your call frequency and duration to provide deep interaction insights.</p>
+            </div>
+            <div class="liquid-glass p-8">
+                <h4 class="font-bold mb-3">Secure Export</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">Effortless local backup via Android SAF. Optional $AES-256-GCM$ encryption ensures your exported files remain for your eyes only.</p>
             </div>
         </div>
 
-        <section class="bg-white rounded-[32px] shadow-sm border border-slate-200 overflow-hidden">
+        <section id="privacy" class="bg-white rounded-[32px] shadow-sm border border-slate-200 overflow-hidden">
             <div class="flex border-b border-slate-100 bg-slate-50/50">
-                <button onclick="openTab('kr')" id="btn-kr" class="tab-btn active flex-1 py-5 text-xs font-bold tracking-widest uppercase">Korean (KR)</button>
-                <button onclick="openTab('en')" id="btn-en" class="tab-btn flex-1 py-5 text-xs font-bold tracking-widest uppercase text-slate-400">English (EN)</button>
+                <button onclick="openTab('kr')" id="btn-kr" class="tab-btn active flex-1 py-5 text-[11px] font-bold tracking-widest uppercase">Korean (KR)</button>
+                <button onclick="openTab('en')" id="btn-en" class="tab-btn flex-1 py-5 text-[11px] font-bold tracking-widest uppercase text-slate-400">English (EN)</button>
             </div>
 
             <div id="kr" class="tab-content active p-8 md:p-16 policy-section">
@@ -55,7 +88,6 @@
                 <p class="text-xs text-slate-400 mb-10">최종 수정일: 2026. 04. 12.</p>
 
                 <h4>1. 데이터 수집 항목 및 목적</h4>
-                <p class="text-sm">DialRolo는 기능 수행을 위해 필요한 최소한의 데이터에 접근하며, 이를 외부 서버로 전송(수집)하지 않습니다.</p>
                 <table class="data-table">
                     <thead><tr><th>항목</th><th>이용 목적</th><th>보관 장소</th></tr></thead>
                     <tbody>
@@ -66,7 +98,7 @@
                 </table>
 
                 <h4>2. 제3자 제공 및 위탁</h4>
-                <p class="text-sm">본 앱은 사용자의 개인정보를 제3자에게 판매하거나 공유하지 않습니다. 다만, 서비스 운영을 위해 아래의 외부 서비스를 활용합니다.</p>
+                <p class="text-sm">본 앱은 사용자의 데이터를 서버로 전송하지 않습니다. 서비스 운영을 위해 아래의 표준 서비스를 활용합니다.</p>
                 <ul class="list-disc pl-5 text-sm space-y-1 mt-2">
                     <li><strong>Google AdMob:</strong> 맞춤형 광고 제공 (사용자 비식별)</li>
                     <li><strong>Google Android OS:</strong> 시스템 자동 백업 (설정 데이터 약 25MB)</li>
@@ -74,15 +106,9 @@
 
                 <h4>3. 데이터의 처리 및 파기</h4>
                 <ul class="list-disc pl-5 text-sm space-y-2">
-                    <li><strong>처리 방식:</strong> 모든 분석과 자동 백업은 사용자의 스마트폰 내에서 실시간으로 처리됩니다 (On-device Processing).</li>
-                    <li><strong>파기 절차:</strong> 앱 삭제 시 기기 내부에 저장된 모든 통화 아카이브 데이터는 즉시 삭제됩니다. 사용자가 별도로 내보낸 암호화($AES-256-GCM$) 파일은 사용자가 직접 삭제해야 합니다.</li>
+                    <li><strong>처리 방식:</strong> 모든 분석과 자동 백업은 사용자의 스마트폰 내에서 실시간으로 처리됩니다.</li>
+                    <li><strong>파기 절차:</strong> 앱 삭제 시 기기 내부에 저장된 모든 통화 아카이브 데이터는 즉시 삭제됩니다.</li>
                 </ul>
-
-                <h4>4. 사용자의 권리 및 거부 방법</h4>
-                <p class="text-sm">사용자는 안드로이드 설정 메뉴를 통해 언제든지 통화 기록 및 연락처 접근 권한을 철회할 수 있습니다. 단, 권한 철회 시 아카이빙 및 대시보드 기능 이용이 제한됩니다.</p>
-
-                <h4>5. 개인정보 보호 책임자</h4>
-                <p class="text-sm">문의 사항이 있으실 경우 아래로 연락 주시기 바랍니다.<br>이메일: <span class="font-bold">mcstarbig.ai@gmail.com</span> (예시)</p>
             </div>
 
             <div id="en" class="tab-content p-8 md:p-16 policy-section">
@@ -90,7 +116,6 @@
                 <p class="text-xs text-slate-400 mb-10">Last Updated: April 12, 2026</p>
 
                 <h4>1. Data Types and Purposes</h4>
-                <p class="text-sm">DialRolo accesses minimal data required for its core features. We have a strict "No-Server" policy for your personal information.</p>
                 <table class="data-table">
                     <thead><tr><th>Type</th><th>Purpose</th><th>Storage</th></tr></thead>
                     <tbody>
@@ -101,7 +126,7 @@
                 </table>
 
                 <h4>2. Third-Party Services</h4>
-                <p class="text-sm">We do not sell or share your data with third parties. We use the following standard services for app maintenance:</p>
+                <p class="text-sm">We do not operate external servers for your call data. We use standard services for app maintenance:</p>
                 <ul class="list-disc pl-5 text-sm space-y-1 mt-2">
                     <li><strong>Google AdMob:</strong> For showing non-personally identifiable ads.</li>
                     <li><strong>Google Android OS:</strong> For system-level auto backups (approx. 25MB).</li>
@@ -109,21 +134,15 @@
 
                 <h4>3. Retention and Deletion</h4>
                 <ul class="list-disc pl-5 text-sm space-y-2">
-                    <li><strong>Processing:</strong> All analytics are performed on-device. No call logs are ever transmitted to external private servers.</li>
-                    <li><strong>Deletion:</strong> Uninstalling the app permanently wipes all locally stored archives. User-exported encrypted ($AES-256-GCM$) files must be deleted manually by the user.</li>
+                    <li><strong>Processing:</strong> All analytics are performed on-device. No logs are transmitted to external private servers.</li>
+                    <li><strong>Deletion:</strong> Uninstalling the app permanently wipes all locally stored archives.</li>
                 </ul>
-
-                <h4>4. User Rights</h4>
-                <p class="text-sm">You can revoke permissions (Call Log, Contacts) at any time via Android Settings. Disabling these will limit the app's ability to provide insights and backups.</p>
-
-                <h4>5. Contact Information</h4>
-                <p class="text-sm">For any privacy-related inquiries, please contact us at:<br>Email: <span class="font-bold">mcstarbig.ai@gmail.com</span></p>
             </div>
         </section>
     </main>
 
     <footer class="text-center pb-20 text-slate-400 text-[10px] font-bold tracking-[0.3em] uppercase">
-        DialRolo Project &bull; Local-First Architecture &bull; 2026
+        DialRolo Project &bull; Built for Permanence &bull; 2026
     </footer>
 
     <script>
