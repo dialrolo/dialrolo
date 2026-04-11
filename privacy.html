@@ -6,8 +6,8 @@
     <title>Privacy Policy - DialRolo</title>
     <style>
         :root { 
-            --primary: #334155; 
-            --bg: #F2F2F7; 
+            --primary: #334155; /* Deep Slate */
+            --bg: #F2F2F7; /* Light Gray */
             --text: #1F2937; 
             --accent: #FFFFFF; 
             --orange: #FF5722;
@@ -22,20 +22,26 @@
             padding: 40px 24px; 
         }
 
+        /* 언어 스위처 */
         .lang-switcher {
             display: flex;
             justify-content: flex-end;
             gap: 8px;
             margin-bottom: 40px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
         }
         .lang-btn {
             padding: 8px 16px;
             border-radius: 12px;
-            border: 1px solid #D1D5DB;
-            background: white;
-            color: #6B7280;
-            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            color: #64748B;
             font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
         }
         .lang-btn.active {
             background: var(--primary);
@@ -43,30 +49,33 @@
             border-color: var(--primary);
         }
 
-        /* 기본적으로 숨기되 active 클래스가 있으면 표시 */
         .policy-content { display: none; }
         .policy-content.active { display: block; }
 
-        h1 { font-size: 2.5rem; font-weight: 900; color: var(--primary); margin-bottom: 30px; }
-        h2 { font-size: 1.5rem; margin-top: 40px; color: var(--primary); border-left: 6px solid var(--primary); padding-left: 20px; }
+        h1 { font-size: 2.2rem; font-weight: 900; color: var(--primary); margin-bottom: 30px; letter-spacing: -0.04em; }
+        h2 { font-size: 1.4rem; margin-top: 45px; color: var(--primary); border-left: 5px solid var(--primary); padding-left: 18px; font-weight: 800; }
+        p, li { font-size: 1rem; color: #4B5563; }
+        ul { padding-left: 20px; }
         
         .philosophy-box { 
             background: var(--accent); 
-            border-radius: 24px; 
-            padding: 32px; 
+            border-radius: 20px; 
+            padding: 28px; 
             margin: 30px 0; 
             border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
         
         .highlight { color: var(--orange); font-weight: 700; }
+        .service-list { background: #f9fafb; border-radius: 12px; padding: 15px; margin-top: 10px; list-style: none; }
         
         footer { 
-            margin-top: 60px; 
+            margin-top: 70px; 
             padding-top: 30px; 
             border-top: 1px solid #E5E7EB; 
-            font-size: 0.9rem; 
+            font-size: 0.85rem; 
+            color: #9CA3AF; 
             text-align: center; 
-            color: #9CA3AF;
         }
     </style>
 </head>
@@ -78,42 +87,35 @@
     </div>
 
     <div id="content-ko" class="policy-content active">
-        <h1>DialRolo 개인정보 처리방침</h1>
+        <h1>개인정보 처리방침</h1>
+        <p><strong>최종 업데이트:</strong> 2026년 4월 12일</p>
+
         <div class="philosophy-box">
-            <strong>설계 철학:</strong> <span class="highlight">제로 서버(Zero-Server)</span> 아키텍처를 통해 사용자의 완전한 데이터 소유권을 보장합니다.
+            <strong>설계 철학:</strong> DialRolo는 <span class="highlight">'의도적 제로 서버(Intentional Zero-Server)'</span> 아키텍처를 선택했습니다. 모든 분석과 보관은 오직 사용자의 기기 내에서만 완결됩니다.
         </div>
-        <h2>1. 데이터 접근</h2>
-        <p>통화 기록 및 연락처 정보는 오직 기기 내에서만 처리됩니다.</p>
-        <footer>&copy; 2026 DialRolo.</footer>
-    </div>
 
-    <div id="content-en" class="policy-content">
-        <h1>Privacy Policy for DialRolo</h1>
-        <div class="philosophy-box">
-            <strong>Philosophy:</strong> We choose a <span class="highlight">Zero-Server architecture</span> for your data sovereignty.
-        </div>
-        <h2>1. Data Access</h2>
-        <p>All data processing occurs strictly on your local device.</p>
-        <footer>&copy; 2026 DialRolo.</footer>
-    </div>
+        <h2>1. 수집하는 개인정보 및 접근 권한</h2>
+        <p>서비스 제공을 위해 아래의 권한을 사용하며, 데이터는 로컬에서만 처리됩니다.</p>
+        <ul>
+            <li><strong>통화 기록:</strong> 통화 목록 캡처 및 통계 분석용 (기기 내 저장)</li>
+            <li><strong>연락처:</strong> 통화 목록에 이름을 표시하기 위한 매칭용</li>
+            <li><strong>비식별 식별자:</strong> 앱 최적화 및 광고 제공을 위한 광고 ID (ADID)</li>
+        </ul>
 
-    <script>
-        function setLang(lang) {
-            // 모든 콘텐츠 숨기기
-            document.querySelectorAll('.policy-content').forEach(el => el.classList.remove('active'));
-            // 모든 버튼 비활성화
-            document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
-            
-            // 선택된 언어 활성화
-            document.getElementById('content-' + lang).classList.add('active');
-            document.getElementById('btn-' + lang).classList.add('active');
-        }
+        <h2>2. 제3자 서비스 (광고)</h2>
+        <p>DialRolo는 지속적인 서비스 개선을 위해 아래의 제3자 서비스를 이용하며, 해당 서비스는 자체 방침에 따라 비식별 데이터를 수집할 수 있습니다.</p>
+        <ul class="service-list">
+            <li><strong>Google AdMob:</strong> 맞춤형 광고 제공 및 광고 성과 측정을 위해 기기 식별자를 수집합니다.</li>
+            <li><a href="https://policies.google.com/privacy" target="_blank">Google 개인정보 처리방침 확인하기</a></li>
+        </ul>
 
-        // 브라우저 언어 감지 (한국어 아니면 영어로 전환)
-        const userLang = navigator.language || navigator.userLanguage;
-        if (!userLang.startsWith('ko')) {
-            setLang('en');
-        }
-    </script>
-</body>
-</html>
+        <h2>3. 데이터 저장 및 암호화</h2>
+        <ul>
+            <li><strong>로컬 저장:</strong> 모든 통화 데이터는 기기 내 보안 저장소에 고립되어 저장됩니다.</li>
+            <li><strong>AES-256-GCM:</strong> 사용자가 수동으로 내보내는 백업 파일은 산업 표준 암호화가 적용됩니다.</li>
+        </ul>
+
+        <h2>4. 개인정보의 파기</h2>
+        <p>사용자가 앱에서 데이터를 삭제하면, 서버에 복사본이 존재하지 않으므로 데이터는 <span class="highlight">즉시 완전 파기</span>됩니다.</p>
+
+        <footer>&copy; 2026 DialR
