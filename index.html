@@ -17,7 +17,6 @@
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 28px;
         }
-        /* Tab Logic */
         .tab-content { display: none; }
         .tab-content.active { display: block !important; }
         .tab-btn { border-bottom: 2px solid transparent; transition: all 0.3s ease; cursor: pointer; }
@@ -27,6 +26,7 @@
         .data-table th, .data-table td { border: 1px solid #e2e8f0; padding: 12px; text-align: left; }
         .data-table th { background: #f1f5f9; font-weight: 600; }
         .policy-section h4 { font-weight: 700; color: #0f172a; margin-top: 2rem; margin-bottom: 0.75rem; border-left: 4px solid var(--slate-main); padding-left: 12px; }
+        .highlight-box { background: #fffbeb; border: 1px solid #fef3c7; padding: 1rem; border-radius: 12px; font-size: 0.85rem; color: #92400e; margin: 1rem 0; }
     </style>
 </head>
 <body class="antialiased">
@@ -85,77 +85,93 @@
 
             <div id="kr" class="tab-content active p-8 md:p-16 policy-section">
                 <h2 class="text-3xl font-black text-slate-900 mb-2">개인정보 처리방침</h2>
-                <p class="text-xs text-slate-400 mb-10">최종 수정일: 2026. 04. 12.</p>
+                <p class="text-xs text-slate-400 mb-6">최종 수정일: 2026. 04. 12.</p>
 
-                <h4>1. 데이터 수집 항목 및 목적</h4>
+                <div class="highlight-box font-semibold">
+                    💡 DialRolo는 사용자의 원본 데이터를 수정, 삭제, 가공(변조)할 수 있는 쓰기 권한을 요청하지 않으며, 오직 분석 및 백업을 위한 읽기 전용 접근만을 수행합니다.
+                </div>
+
+                <h4>1. 데이터 수집 항목 및 권한 범위</h4>
+                <p class="text-sm">본 앱은 기능 수행을 위해 필요한 최소한의 데이터에 대해 <strong>읽기 전용(Read-only)</strong> 접근을 수행합니다.</p>
                 <table class="data-table">
-                    <thead><tr><th>항목</th><th>이용 목적</th><th>보관 장소</th></tr></thead>
+                    <thead><tr><th>항목</th><th>권한 유형</th><th>이용 목적</th></tr></thead>
                     <tbody>
-                        <tr><td>통화 기록(Call Log)</td><td>대시보드 통계 및 2,000건 이상의 로컬 아카이브 생성</td><td>기기 내부 DB</td></tr>
-                        <tr><td>연락처(Contacts)</td><td>통화 목록 내 이름 표시 (선택 사항)</td><td>메모리 참조</td></tr>
-                        <tr><td>광고 식별자(AAID)</td><td>Google AdMob을 통한 비식별 광고 송출</td><td>Google 서버</td></tr>
+                        <tr><td>통화 기록(Call Log)</td><td><strong>읽기 전용</strong></td><td>대시보드 통계 및 2,000건 이상의 로컬 아카이브 생성</td></tr>
+                        <tr><td>연락처(Contacts)</td><td><strong>읽기 전용</strong></td><td>통화 목록 내 이름 표시 (선택 사항)</td></tr>
+                        <tr><td>광고 식별자(AAID)</td><td>비식별 접근</td><td>Google AdMob을 통한 광고 송출</td></tr>
                     </tbody>
                 </table>
 
-                <h4>2. 제3자 제공 및 위탁</h4>
-                <p class="text-sm">본 앱은 사용자의 데이터를 서버로 전송하지 않습니다. 서비스 운영을 위해 아래의 표준 서비스를 활용합니다.</p>
+                <h4>2. 데이터 무가공 원칙</h4>
+                <ul class="list-disc pl-5 text-sm space-y-2 mt-2">
+                    <li><strong>수정 금지:</strong> 앱은 시스템에 저장된 사용자의 원본 통화 기록을 수정하거나 삭제하지 않습니다.</li>
+                    <li><strong>무가공 분석:</strong> 앱 내 인사이트 분석은 원본 데이터의 통계적 수치만을 계산하며, 사용자의 프라이버시를 침해할 수 있는 별도의 가공이나 변조 행위를 일체 수행하지 않습니다.</li>
+                    <li><strong>서버 미전송:</strong> 모든 분석 결과는 기기 외부로 전송되지 않고 로컬 환경에서만 폐쇄적으로 처리됩니다.</li>
+                </ul>
+
+                <h4>3. 제3자 제공 및 위탁</h4>
+                <p class="text-sm">사용자의 데이터를 외부 서버로 전송하지 않으며, 다음의 표준 서비스 외에는 어떠한 제3자에게도 정보를 제공하지 않습니다.</p>
                 <ul class="list-disc pl-5 text-sm space-y-1 mt-2">
-                    <li><strong>Google AdMob:</strong> 맞춤형 광고 제공 (사용자 비식별)</li>
+                    <li><strong>Google AdMob:</strong> 비식별 기반 광고 제공</li>
                     <li><strong>Google Android OS:</strong> 시스템 자동 백업 (설정 데이터 약 25MB)</li>
                 </ul>
 
-                <h4>3. 데이터의 처리 및 파기</h4>
-                <ul class="list-disc pl-5 text-sm space-y-2">
-                    <li><strong>처리 방식:</strong> 모든 분석과 자동 백업은 사용자의 스마트폰 내에서 실시간으로 처리됩니다.</li>
-                    <li><strong>파기 절차:</strong> 앱 삭제 시 기기 내부에 저장된 모든 통화 아카이브 데이터는 즉시 삭제됩니다.</li>
-                </ul>
+                <h4>4. 파기 절차</h4>
+                <p class="text-sm">앱 삭제 시 기기 로컬 DB에 아카이브된 모든 통계 및 통화 데이터는 즉시 물리적으로 파기되어 복구가 불가능합니다.</p>
             </div>
 
             <div id="en" class="tab-content p-8 md:p-16 policy-section">
                 <h2 class="text-3xl font-black text-slate-900 mb-2">Privacy Policy</h2>
-                <p class="text-xs text-slate-400 mb-10">Last Updated: April 12, 2026</p>
+                <p class="text-xs text-slate-400 mb-6">Last Updated: April 12, 2026</p>
 
-                <h4>1. Data Types and Purposes</h4>
+                <div class="highlight-box font-semibold">
+                    💡 DialRolo utilizes Read-only access to your call history. We do not modify, delete, or manipulate your original device data in any way.
+                </div>
+
+                <h4>1. Data Types and Access Level</h4>
+                <p class="text-sm">We strictly follow a "Read-only" policy for all sensitive permissions.</p>
                 <table class="data-table">
-                    <thead><tr><th>Type</th><th>Purpose</th><th>Storage</th></tr></thead>
+                    <thead><tr><th>Type</th><th>Access Level</th><th>Purpose</th></tr></thead>
                     <tbody>
-                        <tr><td>Call Log</td><td>Statistics & Local Archiving (2,000+)</td><td>On-device DB</td></tr>
-                        <tr><td>Contacts</td><td>Displaying names in logs (Optional)</td><td>Memory only</td></tr>
-                        <tr><td>Advertising ID</td><td>Non-personal ads via Google AdMob</td><td>Google Server</td></tr>
+                        <tr><td>Call Log</td><td><strong>Read-only</strong></td><td>Analytics & Local Archiving (2,000+)</td></tr>
+                        <tr><td>Contacts</td><td><strong>Read-only</strong></td><td>Displaying names in logs (Optional)</td></tr>
+                        <tr><td>Advertising ID</td><td>Non-personal</td><td>Ads via Google AdMob</td></tr>
                     </tbody>
                 </table>
 
-                <h4>2. Third-Party Services</h4>
-                <p class="text-sm">We do not operate external servers for your call data. We use standard services for app maintenance:</p>
+                <h4>2. No-Manipulation Guarantee</h4>
+                <ul class="list-disc pl-5 text-sm space-y-2">
+                    <li><strong>Integrity:</strong> We do not alter or delete your device's raw call history.</li>
+                    <li><strong>On-device Processing:</strong> Your raw data is used only for local calculations. We do not re-process or manipulate your data for any other hidden purposes.</li>
+                    <li><strong>Zero External Transmission:</strong> All insights are computed strictly within your device environment.</li>
+                </ul>
+
+                <h4>3. Third-Party Services</h4>
+                <p class="text-sm">No personal logs are transmitted to external private servers.</p>
                 <ul class="list-disc pl-5 text-sm space-y-1 mt-2">
-                    <li><strong>Google AdMob:</strong> For showing non-personally identifiable ads.</li>
+                    <li><strong>Google AdMob:</strong> For non-personally identifiable ads.</li>
                     <li><strong>Google Android OS:</strong> For system-level auto backups (approx. 25MB).</li>
                 </ul>
 
-                <h4>3. Retention and Deletion</h4>
-                <ul class="list-disc pl-5 text-sm space-y-2">
-                    <li><strong>Processing:</strong> All analytics are performed on-device. No logs are transmitted to external private servers.</li>
-                    <li><strong>Deletion:</strong> Uninstalling the app permanently wipes all locally stored archives.</li>
-                </ul>
+                <h4>4. Deletion</h4>
+                <p class="text-sm">Uninstalling the app permanently erases all locally archived data and analytical results from your device storage.</p>
             </div>
         </section>
     </main>
 
     <footer class="text-center pb-20 text-slate-400 text-[10px] font-bold tracking-[0.3em] uppercase">
-        DialRolo Project &bull; Built for Permanence &bull; 2026
+        DialRolo Project &bull; Local-First Architecture &bull; 2026
     </footer>
 
     <script>
         function openTab(lang) {
             const contents = document.getElementsByClassName('tab-content');
             for (let i = 0; i < contents.length; i++) { contents[i].classList.remove('active'); }
-
             const buttons = document.getElementsByClassName('tab-btn');
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove('active');
                 buttons[i].classList.add('text-slate-400');
             }
-
             const targetContent = document.getElementById(lang);
             const targetBtn = document.getElementById('btn-' + lang);
             if (targetContent && targetBtn) {
