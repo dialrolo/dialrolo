@@ -1,147 +1,131 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DialRolo | Simple. Secure. Yours.</title>
+    <title>DialRolo | Beyond Call Log Limits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { 
-            --bg: #F2F2F7; /* 앱 배경색 적용 */
-            --card-bg: rgba(255, 255, 255, 0.7);
-            --card-border: rgba(255, 255, 255, 0.5);
-            --primary: #334155; /* Slate Gray */
-            --accent: #FF5722; /* Liquid Orange */
-            --text-main: #1C1C1E; 
-            --text-dim: #64748B; 
+        :root { --slate-main: #334155; --slate-bg: #F8FAFC; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--slate-bg); color: var(--slate-main); }
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 28px;
         }
-
-        body { 
-            background: var(--bg); 
-            color: var(--text-main); 
-            font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", sans-serif; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            min-height: 100vh; 
-            margin: 0; 
-            overflow-x: hidden;
-        }
-
-        .glow { 
-            position: absolute; 
-            top: 20%; 
-            right: 10%; 
-            width: 500px; 
-            height: 500px; 
-            background: radial-gradient(circle, rgba(51, 65, 85, 0.07) 0%, transparent 70%); 
-            filter: blur(100px); 
-            z-index: -1; 
-        }
-
-        .container { 
-            position: relative; 
-            z-index: 1; 
-            text-align: center; 
-            padding: 4rem 2rem; 
-            max-width: 700px; 
-        }
-
-        h1 { 
-            font-size: 3.5rem; 
-            font-weight: 900; 
-            margin-bottom: 0.5rem; 
-            letter-spacing: -0.06em; 
-            color: var(--primary);
-        }
-
-        .tagline {
-            font-size: 0.9rem;
-            color: var(--text-dim);
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            margin-bottom: 4rem;
-            font-weight: 700;
-        }
-
-        .feature-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 1.5rem; 
-            text-align: left; 
-        }
-
-        .card { 
-            padding: 2rem; 
-            background: var(--card-bg); 
-            backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--card-border); 
-            border-radius: 32px; 
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .card h3 { 
-            margin: 0 0 0.8rem 0; 
-            font-size: 1.3rem; 
-            color: var(--primary); 
-            font-weight: 800;
-        }
-
-        .card p { 
-            margin: 0; 
-            font-size: 1.05rem; 
-            color: #475569; 
-            line-height: 1.7; 
-        }
-
-        .highlight { 
-            color: var(--accent); 
-            font-weight: 700; 
-        }
-
-        .links { 
-            margin-top: 5rem; 
-        }
-
-        a { 
-            color: var(--text-dim); 
-            text-decoration: none; 
-            font-size: 0.95rem; 
-            font-weight: 600;
-        }
-
-        a:hover { 
-            color: var(--primary); 
-            text-decoration: underline;
-        }
+        .feature-icon { background: var(--slate-main); color: white; border-radius: 12px; padding: 10px; }
+        .tab-btn.active { border-bottom: 2px solid var(--slate-main); font-weight: 700; color: var(--slate-main); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .data-table { width: 100%; font-size: 0.8rem; border-collapse: collapse; margin-top: 1rem; }
+        .data-table th, .data-table td { border: 1px solid #e2e8f0; padding: 8px; text-align: left; }
     </style>
 </head>
-<body>
-    <div class="glow"></div>
-    <div class="container">
-        <h1>DialRolo</h1>
-        <p class="tagline">Archive. Filter. Control.</p>
+<body class="antialiased">
+
+    <header class="max-w-5xl mx-auto pt-24 pb-16 px-6">
+        <div class="inline-block px-3 py-1 mb-6 text-[10px] font-bold tracking-[0.2em] uppercase bg-slate-200 rounded-md">
+            Android Utility Project
+        </div>
+        <h1 class="text-5xl md:text-6xl font-black tracking-tight text-slate-900 mb-6">
+            Stop losing your <br><span class="text-slate-500">Call History.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-500 max-w-2xl font-light leading-relaxed">
+            Android typically limits your call history to 500 entries. <br class="hidden md:block">
+            DialRolo archives everything locally, giving you a permanent record of your communication.
+        </p>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 pb-32">
         
-        <div class="feature-grid">
-            <div class="card">
-                <h3>Archive Every Record</h3>
-                <p>통화 기록 한계를 넘어 모든 연결을 안전하게 저장하세요. <span class="highlight">2,000건의 제한</span> 없이 관계의 기록을 영구히 보존합니다.</p>
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold">Why DialRolo?</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    대부분의 스마트폰은 저장 공간 효율을 위해 오래된 통화 기록을 자동으로 삭제합니다. 비즈니스 파트너와의 중요한 통화 시점이나 소중한 사람과의 기록이 어느 날 사라져 버리는 이유입니다. <br><br>
+                    DialRolo는 시스템 다이얼러의 휘발성 기록을 <strong>로컬 전용 데이터베이스</strong>로 안전하게 옮겨 담습니다. 이제 2,000건, 혹은 그 이상의 기록을 영구적으로 보관하고 관리하세요.
+                </p>
             </div>
-            <div class="card">
-                <h3>Intentional Local-First</h3>
-                <p>의도적으로 서버를 운영하지 않습니다. <span class="highlight">Zero-Server</span> 설계를 통해 모든 기록은 오직 기기 안에서만 존재합니다.</p>
+            <div class="liquid-glass p-10 flex flex-col justify-center">
+                <div class="text-4xl font-bold mb-2">2,000+</div>
+                <div class="text-slate-500 font-medium">Archivable Logs</div>
+                <div class="mt-4 h-1 w-20 bg-slate-400"></div>
+                <p class="mt-6 text-sm text-slate-500">시스템 제한을 넘어선 무제한 로컬 아카이빙 프로세스. 서버 전송 없이 오직 당신의 기기에만 저장됩니다.</p>
+            </div>
+        </section>
+
+        <h2 class="text-2xl font-bold mb-10 text-center">Data-Driven Insights</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+            <div class="liquid-glass p-8">
+                <h4 class="font-bold mb-3">Time Patterns</h4>
+                <p class="text-xs text-slate-500">당신이 가장 활발하게 통화하는 시간대는 언제인가요? 시간대별 통계로 확인하세요.</p>
+            </div>
+            <div class="liquid-glass p-8">
+                <h4 class="font-bold mb-3">Duration Analysis</h4>
+                <p class="text-xs text-slate-500">단순 빈도가 아닌 '실제 대화 시간'을 기준으로 관계의 밀도를 가중치 알고리즘으로 계산합니다.</p>
+            </div>
+            <div class="liquid-glass p-8">
+                <h4 class="font-bold mb-3">Weekly Trends</h4>
+                <p class="text-xs text-slate-500">평일 업무 통화와 주말 개인 통화의 밸런스를 차트로 비교해 드립니다.</p>
             </div>
         </div>
 
-        <div class="links">
-            <a href="privacy.html">Privacy Policy (EN / KR)</a>
-        </div>
-    </div>
-</body>
-</html>
+        <section class="bg-white rounded-[32px] shadow-sm border border-slate-200 overflow-hidden">
+            <div class="flex border-b border-slate-100 bg-slate-50/50">
+                <button onclick="openTab('kr')" id="btn-kr" class="tab-btn active flex-1 py-5 text-xs tracking-widest uppercase">Korean (KR)</button>
+                <button onclick="openTab('en')" id="btn-en" class="tab-btn flex-1 py-5 text-xs tracking-widest uppercase text-slate-400">English (EN)</button>
+            </div>
+
+            <div id="kr" class="tab-content active p-8 md:p-16">
+                <h2 class="text-2xl font-bold mb-8">개인정보 처리방침</h2>
+                <div class="space-y-10 text-sm leading-relaxed text-slate-600">
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-3">1. 수집 항목 및 목적</h4>
+                        <table class="data-table">
+                            <thead><tr><th>수집 항목</th><th>이용 목적</th><th>보관 기간</th></tr></thead>
+                            <tbody>
+                                <tr><td>통화 기록(Call Log)</td><td>대시보드 통계 및 로컬 아카이브 생성</td><td>앱 삭제 시 즉시 파기</td></tr>
+                                <tr><td>연락처(Contacts)</td><td>통화 목록 내 발신자 이름 표시</td><td>앱 삭제 시 즉시 파기</td></tr>
+                                <tr><td>광고 식별자(AAID)</td><td>Google AdMob 광고 송출</td><td>구글 정책 준수</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-3">2. 데이터 보안 프로세스</h4>
+                        <p> DialRolo는 <strong>Serverless</strong> 아키텍처를 따릅니다. 모든 데이터는 기기 내부에서만 처리되며, 사용자가 명시적으로 '내보내기'를 실행하여 $AES-256-GCM$ 암호화 파일을 생성할 때만 외부 저장소(SAF 지정 경로)로 데이터가 이동합니다. </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-3">3. Google 시스템 백업 고지</h4>
+                        <p> 안드로이드 운영체제가 제공하는 '기본 앱 데이터 백업'에 의해 약 25MB 이내의 설정 데이터가 사용자의 구글 드라이브에 저장될 수 있습니다. 이는 시스템의 기능이며 개발자는 해당 데이터에 접근할 권한이 없습니다. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="en" class="tab-content p-8 md:p-16 text-sm text-slate-600">
+                <h2 class="text-2xl font-bold mb-8 text-slate-900">Privacy Policy</h2>
+                <p class="mb-6">DialRolo is a local-first utility. We value your data sovereignty above all else.</p>
+                <ul class="list-disc pl-5 space-y-4">
+                    <li><strong>No Private Servers:</strong> We do not operate any external infrastructure to collect your call logs.</li>
+                    <li><strong>Encrypted Export:</strong> Manual backups can be secured with AES-256-GCM upon your request.</li>
+                    <li><strong>OS Integration:</strong> Standard Android system backups (up to 25MB) are managed by Google OS services.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center pb-20 text-slate-400 text-[10px] font-bold tracking-[0.3em] uppercase">
+        DialRolo Project &bull; Built for Permanence &bull; 2026
+    </footer>
+
+    <script>
+        function openTab(lang) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('active');
+                el.classList.add('text-slate-400');
+            });
+            document.getElementById(lang).classList.add('active
