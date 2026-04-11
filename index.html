@@ -109,11 +109,14 @@
                     <li><strong>서버 미전송:</strong> 모든 분석 결과는 기기 외부로 전송되지 않고 로컬 환경에서만 폐쇄적으로 처리됩니다.</li>
                 </ul>
 
-                <h4>3. 제3자 제공 및 위탁</h4>
+                <h4>3. 제3자 제공 및 위탁 (Play Store Compliance)</h4>
+                <div class="highlight-box font-medium mb-4">
+                    <strong>구글 플레이 데이터 보안 설문 정합성 고지:</strong> 본 앱은 통화 기록을 외부 서버로 '수집(Collection)'하지 않으며, 오직 앱의 핵심 기능 수행을 위해 '접근(Access)'하고 사용자의 선택에 따른 로컬 백업 용도로만 활용합니다.
+                </div>
                 <p class="text-sm">사용자의 데이터를 외부 서버로 전송하지 않으며, 다음의 표준 서비스 외에는 어떠한 제3자에게도 정보를 제공하지 않습니다.</p>
                 <ul class="list-disc pl-5 text-sm space-y-1 mt-2">
                     <li><strong>Google AdMob:</strong> 비식별 기반 광고 제공</li>
-                    <li><strong>Google Android OS:</strong> 시스템 자동 백업 (설정 데이터 약 25MB)</li>
+                    <li><strong>Google Android OS:</strong> 시스템 자동 백업 (설정 데이터 약 25MB). 이는 사용자의 구글 계정 귀속 서비스이며 개발자는 해당 데이터에 접근할 수 없습니다.</li>
                 </ul>
 
                 <h4>4. 파기 절차</h4>
@@ -137,20 +140,24 @@
                         <tr><td>Contacts</td><td><strong>Read-only</strong></td><td>Displaying names in logs (Optional)</td></tr>
                         <tr><td>Advertising ID</td><td>Non-personal</td><td>Ads via Google AdMob</td></tr>
                     </tbody>
+                </tbody>
                 </table>
 
                 <h4>2. No-Manipulation Guarantee</h4>
                 <ul class="list-disc pl-5 text-sm space-y-2">
                     <li><strong>Integrity:</strong> We do not alter or delete your device's raw call history.</li>
-                    <li><strong>On-device Processing:</strong> Your raw data is used only for local calculations. We do not re-process or manipulate your data for any other hidden purposes.</li>
+                    <li><strong>On-device Processing:</strong> Your raw data is used only for local calculations. No re-processing or manipulation for hidden purposes.</li>
                     <li><strong>Zero External Transmission:</strong> All insights are computed strictly within your device environment.</li>
                 </ul>
 
-                <h4>3. Third-Party Services</h4>
+                <h4>3. Third-Party Services (Play Store Compliance)</h4>
+                <div class="highlight-box font-medium mb-4">
+                    <strong>Google Play Data Safety Disclosure:</strong> This app does not 'Collect' call logs to external servers. It only 'Accesses' data for core app functionality and local backup purposes initiated by the user.
+                </div>
                 <p class="text-sm">No personal logs are transmitted to external private servers.</p>
                 <ul class="list-disc pl-5 text-sm space-y-1 mt-2">
                     <li><strong>Google AdMob:</strong> For non-personally identifiable ads.</li>
-                    <li><strong>Google Android OS:</strong> For system-level auto backups (approx. 25MB).</li>
+                    <li><strong>Google Android OS:</strong> For system-level auto backups (approx. 25MB). Managed by Google services; developer has no access.</li>
                 </ul>
 
                 <h4>4. Deletion</h4>
